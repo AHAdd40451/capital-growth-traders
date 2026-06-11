@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { NAV_LINKS } from "@/lib/data";
 
 export default function Navbar() {
@@ -25,20 +26,15 @@ export default function Navbar() {
     >
       <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between gap-8 px-4 lg:px-8">
         {/* Logo */}
-        <a
-          href="#"
-          className="flex shrink-0 items-center gap-3 transition-transform duration-300 hover:scale-105"
-        >
-          <span className="font-display text-2xl font-bold tracking-wide text-gold">
-            CGT
-          </span>
-          <span className="hidden border-l border-line pl-3 text-[8px] uppercase leading-[1.5] tracking-wideish text-muted sm:block">
-            Creative
-            <br />
-            Genius
-            <br />
-            Trading
-          </span>
+        <a href="#" className="flex shrink-0 items-center transition-transform duration-300 hover:scale-105">
+          <Image
+            src="/PNG.png"
+            alt="Capital Growth Traders"
+            width={120}
+            height={120}
+            className="h-12 w-auto"
+            priority
+          />
         </a>
 
         {/* Desktop nav */}

@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Instagram, Facebook, Youtube, Music2 } from "lucide-react";
+import Image from "next/image";
 import { FOOTER_COLS } from "@/lib/data";
 
 export default function Footer() {
@@ -9,12 +10,15 @@ export default function Footer() {
       <div className="mx-auto grid max-w-[1400px] gap-x-8 gap-y-12 px-4 py-16 md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.5fr] lg:px-8">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-            <span className="font-display text-2xl font-bold text-gold">CGT</span>
-            <span className="border-l border-line pl-3 text-[8px] uppercase leading-[1.5] tracking-wideish">
-              Creative<br />Genius<br />Trading
-            </span>
-          </div>
+          <a href="#" className="inline-block transition-transform duration-300 hover:scale-105">
+            <Image
+              src="/PNG.png"
+              alt="Capital Growth Traders"
+              width={160}
+              height={160}
+              className="h-16 w-auto"
+            />
+          </a>
 
           <p className="mt-5 max-w-[24ch] text-xs leading-relaxed">
             Helping everyday Australians build a second income and create more freedom.
