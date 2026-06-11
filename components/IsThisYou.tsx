@@ -1,9 +1,9 @@
-import { HardHat, Truck, Briefcase, Users, Glasses } from "lucide-react";
+import { HardHat, Plane, Briefcase, Users, Glasses } from "lucide-react";
 import { AUDIENCES } from "@/lib/data";
 
 const ICONS: Record<string, React.ElementType> = {
   HardHat,
-  Truck,
+  Plane,
   Briefcase,
   Users,
   Glasses,

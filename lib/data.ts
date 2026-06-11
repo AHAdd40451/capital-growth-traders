@@ -11,7 +11,7 @@ export const NAV_LINKS = [
 
 export const AUDIENCES = [
   { icon: "HardHat", title: "Tradie", desc: "Working hard for your future" },
-  { icon: "Truck", title: "FIFO Worker", desc: "Away from family, chasing a better life" },
+  { icon: "Plane", title: "FIFO Worker", desc: "Away from family, chasing a better life" },
   { icon: "Briefcase", title: "Business Owner", desc: "Building a business and want more time" },
   { icon: "Users", title: "Busy Parent", desc: "Want more time with your family" },
   { icon: "Glasses", title: "Corporate Professional", desc: "Want more options and financial freedom" },
