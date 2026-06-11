@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+body { @apply bg-ink text-muted font-body antialiased; }
+
+@layer utilities {
+  .onscale {
+    @apply transition-transform duration-300 ease-out hover:scale-105;
+  }
+
+  .onscale-sm {
+    @apply transition-transform duration-300 ease-out hover:scale-[1.02];
+  }
+
+  .onscale-lg {
+    @apply transition-transform duration-500 ease-out hover:scale-110;
+  }
+
+  .image-onscale {
+    @apply transition-transform duration-700 ease-out hover:scale-105;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
