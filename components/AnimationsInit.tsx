@@ -13,7 +13,7 @@ export default function AnimationsInit() {
     const rafId = requestAnimationFrame(() => {
       // Pre-hide hero elements to eliminate any load flash
       gsap.set(
-        "[data-hero-eyebrow],[data-hero-title],[data-hero-sub],[data-hero-btns],[data-hero-proof]",
+        "[data-hero-eyebrow],[data-hero-title],[data-hero-sub],[data-hero-btns]",
         { autoAlpha: 0 }
       );
 
@@ -24,8 +24,7 @@ export default function AnimationsInit() {
           .fromTo("[data-hero-eyebrow]", { y: 28 }, { autoAlpha: 1, y: 0, duration: 0.7,  ease: "power3.out" })
           .fromTo("[data-hero-title]",   { y: 52 }, { autoAlpha: 1, y: 0, duration: 0.95, ease: "power3.out" }, "-=0.45")
           .fromTo("[data-hero-sub]",     { y: 28 }, { autoAlpha: 1, y: 0, duration: 0.7,  ease: "power2.out" }, "-=0.55")
-          .fromTo("[data-hero-btns]",    { y: 22 }, { autoAlpha: 1, y: 0, duration: 0.6,  ease: "power2.out" }, "-=0.42")
-          .fromTo("[data-hero-proof]",   { y: 16 }, { autoAlpha: 1, y: 0, duration: 0.55, ease: "power2.out" }, "-=0.38");
+          .fromTo("[data-hero-btns]",    { y: 22 }, { autoAlpha: 1, y: 0, duration: 0.6,  ease: "power2.out" }, "-=0.42");
 
         // ── Gold underlines draw left-to-right ────────────────────
         // Each [data-heading-line] is already scale-x-0 via inline style
