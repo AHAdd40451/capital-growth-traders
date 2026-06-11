@@ -28,11 +28,11 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex shrink-0 items-center transition-transform duration-300 hover:scale-105">
           <Image
-            src="/PNG.png"
+            src="/logo.png"
             alt="Capital Growth Traders"
-            width={120}
-            height={120}
-            className="h-12 w-auto"
+            width={130}
+            height={50}
+            className="h-10 w-auto"
             priority
           />
         </a>

@@ -12,11 +12,11 @@ export default function Footer() {
         <div>
           <a href="#" className="inline-block transition-transform duration-300 hover:scale-105">
             <Image
-              src="/PNG.png"
+              src="/logo.png"
               alt="Capital Growth Traders"
-              width={160}
-              height={160}
-              className="h-16 w-auto"
+              width={175}
+              height={68}
+              className="h-14 w-auto"
             />
           </a>
 
