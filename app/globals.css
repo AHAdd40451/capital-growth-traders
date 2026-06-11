@@ -5,6 +5,24 @@
 html { scroll-behavior: smooth; }
 body { @apply bg-ink text-muted font-body antialiased; }
 
+/* ── Marquee ─────────────────────────────────────────────────── */
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-scroll-x {
+  animation: scroll-x 40s linear infinite;
+  will-change: transform;
+}
+.animate-scroll-x-reverse {
+  animation: scroll-x 46s linear infinite reverse;
+  will-change: transform;
+}
+@media (hover: hover) {
+  .animate-scroll-x:hover,
+  .animate-scroll-x-reverse:hover { animation-play-state: paused; }
+}
+
 @layer utilities {
   .onscale {
     @apply transition-transform duration-300 ease-out hover:scale-105;
