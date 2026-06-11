@@ -40,7 +40,7 @@ export default function CtaForm() {
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1fr_1.1fr_0.9fr] lg:px-8">
         {/* Copy + perks */}
-        <div>
+        <div data-cta-copy>
           <h2 className="font-display text-3xl font-bold uppercase leading-tight text-cream md:text-4xl">
             Ready to build your <span className="text-gold">second income?</span>
           </h2>
@@ -64,7 +64,7 @@ export default function CtaForm() {
         </div>
 
         {/* Lead form */}
-        <div className="space-y-4">
+        <div data-cta-form className="space-y-4">
           {sent ? (
             <p className="border border-gold bg-card/80 p-6 text-center text-sm text-gold transition-transform duration-300 hover:scale-[1.02]">
               You&apos;re in. Check your inbox for the free training.

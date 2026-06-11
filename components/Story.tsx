@@ -1,6 +1,13 @@
 import Image from "next/image";
 import { Play, ArrowRight } from "lucide-react";
-import { IMAGES, STATS } from "@/lib/data";
+import { IMAGES } from "@/lib/data";
+
+const STATS = [
+  { value: "10,000+", label: "Community Members", countTarget: "10000", countSuffix: "+" },
+  { value: "5+",      label: "Years Trading",      countTarget: "5",     countSuffix: "+" },
+  { value: "1000's",  label: "Of Lives Changed",   countTarget: null,    countSuffix: "" },
+  { value: "1 Mission", label: "To Help You Build Options", countTarget: null, countSuffix: "" },
+];
 
 export default function Story() {
   return (
@@ -10,9 +17,8 @@ export default function Story() {
           src={IMAGES.story}
           alt="Shane telling his story"
           fill
-          className="object-cover object-[25%_center] transition-transform duration-700 hover:scale-105 sm:object-left"
+          className="object-cover object-[25%_center] sm:object-left"
         />
-
         <div className="absolute inset-0 bg-black/20 sm:bg-black/30" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-transparent to-ink/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-ink/45 to-ink/90" />
@@ -20,7 +26,7 @@ export default function Story() {
 
       <div className="relative z-10 mx-auto grid max-w-[1450px] gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.5fr_1.2fr_0.7fr] lg:px-8">
         {/* Video thumb */}
-        <div className="group relative h-64 w-full overflow-hidden sm:h-80 lg:h-[320px]">
+        <div data-story-video className="group relative h-64 w-full overflow-hidden sm:h-80 lg:h-[320px]">
           <button
             className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-ink/60 text-gold transition-transform duration-300 hover:scale-110"
             aria-label="Play Shane's story"
@@ -30,7 +36,7 @@ export default function Story() {
         </div>
 
         {/* Copy */}
-        <div className="transition-transform duration-300 hover:scale-[1.02]">
+        <div data-story-copy>
           <p className="text-[11px] uppercase tracking-wideish text-gold">
             Shane&apos;s Story
           </p>
@@ -60,10 +66,16 @@ export default function Story() {
         <div className="grid grid-cols-2 gap-6 self-center sm:grid-cols-4 lg:grid-cols-1">
           {STATS.map((stat) => (
             <div
+              data-stat-item
               key={stat.label}
               className="transition-transform duration-300 hover:scale-105"
             >
-              <p className="font-display text-2xl font-bold text-gold">
+              <p
+                className="font-display text-2xl font-bold text-gold"
+                {...(stat.countTarget
+                  ? { "data-count-target": stat.countTarget, "data-count-suffix": stat.countSuffix }
+                  : {})}
+              >
                 {stat.value}
               </p>
               <p className="text-xs uppercase tracking-wide text-cream/75">

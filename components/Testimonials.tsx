@@ -20,7 +20,7 @@ export default function Testimonials() {
   return (
     <section className="border-y border-line bg-[#080c0d]">
       <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 lg:px-10">
-        <h2 className="text-center font-display text-[26px] font-bold uppercase tracking-[0.08em] text-cream transition-transform duration-300 hover:scale-105 sm:text-[30px] md:text-[34px]">
+        <h2 data-testi-title className="text-center font-display text-[26px] font-bold uppercase tracking-[0.08em] text-cream sm:text-[30px] md:text-[34px]">
           Real People. Real Results.
         </h2>
 
@@ -42,6 +42,7 @@ export default function Testimonials() {
           >
             {TESTIMONIALS.map((t) => (
               <figure
+                data-testi-card
                 key={t.name}
                 className="group flex min-w-[300px] overflow-hidden rounded-md border border-gold/25 bg-[#0b1112] shadow-[0_0_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] sm:min-w-[360px] md:min-w-[420px]"
               >

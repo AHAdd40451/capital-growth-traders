@@ -20,11 +20,11 @@ export default function Problem() {
 
       <div className="relative z-10 mx-auto flex min-h-[520px] max-w-7xl items-center px-4 py-16 sm:min-h-[560px] sm:px-6 sm:py-20 lg:min-h-[520px] lg:px-8 lg:py-32">
         <div className="max-w-[520px]">
-          <p className="mb-3 text-[10px] uppercase tracking-wideish text-gold transition-transform duration-300 hover:scale-105 sm:text-[11px]">
+          <p data-prob-eyebrow className="mb-3 text-[10px] uppercase tracking-wideish text-gold sm:text-[11px]">
             The Problem
           </p>
 
-          <h2 className="font-display text-3xl font-bold uppercase leading-tight text-cream transition-transform duration-300 hover:scale-[1.02] sm:text-4xl md:text-5xl">
+          <h2 data-prob-title className="font-display text-3xl font-bold uppercase leading-tight text-cream sm:text-4xl md:text-5xl">
             You&apos;ve built an income,
             <br />
             <span className="text-gold">but not freedom.</span>
@@ -33,8 +33,9 @@ export default function Problem() {
           <ul className="mt-6 max-w-md space-y-3 sm:mt-8 sm:space-y-4">
             {PAIN_POINTS.map((point) => (
               <li
+                data-prob-point
                 key={point}
-                className="flex items-center gap-3 text-xs text-cream/90 transition-transform duration-300 hover:scale-105 sm:text-sm"
+                className="flex items-center gap-3 text-xs text-cream/90 sm:text-sm"
               >
                 <CheckCircle2
                   size={18}

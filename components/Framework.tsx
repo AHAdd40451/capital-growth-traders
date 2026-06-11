@@ -6,17 +6,20 @@ export default function Framework() {
   return (
     <section className="bg-[#080c0d]">
       <div className="mx-auto max-w-[1500px] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <p className="text-center text-[15px] font-semibold uppercase tracking-[0.3em] text-gold transition-transform duration-300 hover:scale-105">
-          The CGT Framework
-        </p>
+        <div data-fw-header>
+          <p className="text-center text-[15px] font-semibold uppercase tracking-[0.3em] text-gold">
+            The CGT Framework
+          </p>
 
-        <h2 className="mx-auto mt-3 max-w-[950px] text-center font-display text-[26px] font-bold uppercase leading-tight tracking-[0.07em] text-cream transition-transform duration-300 hover:scale-[1.02] sm:text-[32px] md:text-[38px] lg:text-[42px]">
-          3 Steps to Build Your Second Income
-        </h2>
+          <h2 className="mx-auto mt-3 max-w-[950px] text-center font-display text-[26px] font-bold uppercase leading-tight tracking-[0.07em] text-cream sm:text-[32px] md:text-[38px] lg:text-[42px]">
+            3 Steps to Build Your Second Income
+          </h2>
+        </div>
 
         <div className="mx-auto mt-12 grid max-w-[1450px] overflow-visible border border-gold/25 md:grid-cols-3 lg:mt-14">
           {STEPS.map((step, i) => (
             <article
+              data-step-card
               key={step.num}
               className="group relative h-[330px] overflow-visible border-b border-gold/25 bg-ink transition-transform duration-300 hover:scale-[1.02] md:h-[360px] md:border-b-0 md:border-r md:border-gold/25 last:md:border-r-0"
             >

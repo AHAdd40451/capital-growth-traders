@@ -13,7 +13,7 @@ export default function IsThisYou() {
   return (
     <section className="border-y border-line bg-panel">
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
-        <h2 className="mb-12 text-center font-display text-2xl font-semibold uppercase tracking-wide text-cream transition-transform duration-300 hover:scale-105">
+        <h2 data-ity-title className="mb-12 text-center font-display text-2xl font-semibold uppercase tracking-wide text-cream">
           Is This You?
         </h2>
 
@@ -23,6 +23,7 @@ export default function IsThisYou() {
 
             return (
               <div
+                data-ity-card
                 key={title}
                 className="px-4 text-center transition-transform duration-300 hover:scale-105"
               >

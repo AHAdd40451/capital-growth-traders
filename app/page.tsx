@@ -7,10 +7,12 @@ import Story from "@/components/Story";
 import Testimonials from "@/components/Testimonials";
 import CtaForm from "@/components/CtaForm";
 import Footer from "@/components/Footer";
+import AnimationsInit from "@/components/AnimationsInit";
 
 export default function Home() {
   return (
     <main>
+      <AnimationsInit />
       <Navbar />
       <Hero />
       <IsThisYou />
