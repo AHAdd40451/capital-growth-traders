@@ -31,7 +31,7 @@ export default function RootLayout({
         {children}
         <Script
           src="https://moduleminds.ltd/api/widgets/embed.js"
-          data-widget-id="wgt_9vrfh6t5yr"
+          data-widget-id="wgt_gchp5phjly"
           strategy="afterInteractive"
         />
       </body>
