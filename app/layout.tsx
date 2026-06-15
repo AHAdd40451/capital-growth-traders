@@ -34,6 +34,11 @@ export default function RootLayout({
           data-widget-id="wgt_kag9yhg25r"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://moduleminds.ltd/api/widgets/embed.js"
+          data-widget-id="wgt_9vrfh6t5yr"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
