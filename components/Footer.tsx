@@ -3,21 +3,41 @@
 import { ArrowRight, Instagram, Facebook, Youtube, Music2 } from "lucide-react";
 import { FOOTER_COLS } from "@/lib/data";
 
+const getFooterHref = (link: string) => {
+  if (link === "Blog") return "/blog";
+  if (link === "About Shane") return "/#about-shane";
+  if (link === "Events") return "/#events";
+  if (link === "Free Training") return "/#cta";
+
+  return "#";
+};
+
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-panel">
       <div className="mx-auto grid max-w-[1400px] gap-x-8 gap-y-12 px-4 py-16 md:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1.5fr] lg:px-8">
         {/* Brand */}
         <div>
-          <div className="flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-            <span className="font-display text-2xl font-bold text-gold">CGT</span>
-            <span className="border-l border-line pl-3 text-[8px] uppercase leading-[1.5] tracking-wideish">
-              Creative<br />Genius<br />Trading
+          <a
+            href="/"
+            className="flex items-center gap-3 transition-transform duration-300 hover:scale-105"
+          >
+            <span className="font-display text-2xl font-bold text-gold">
+              CGT
             </span>
-          </div>
+
+            <span className="border-l border-line pl-3 text-[8px] uppercase leading-[1.5] tracking-wideish">
+              Creative
+              <br />
+              Genius
+              <br />
+              Trading
+            </span>
+          </a>
 
           <p className="mt-5 max-w-[24ch] text-xs leading-relaxed">
-            Helping everyday Australians build a second income and create more freedom.
+            Helping everyday Australians build a second income and create more
+            freedom.
           </p>
 
           <div className="mt-6 flex gap-3">
@@ -45,7 +65,7 @@ export default function Footer() {
               {col.links.map((link) => (
                 <li key={link}>
                   <a
-                    href="#"
+                    href={getFooterHref(link)}
                     className="inline-block text-xs transition-all duration-300 hover:scale-105 hover:text-gold"
                   >
                     {link}
@@ -75,6 +95,7 @@ export default function Footer() {
             <button
               className="shrink-0 border border-l-0 border-line px-4 text-gold transition-all duration-300 hover:scale-105 hover:bg-gold hover:text-ink"
               aria-label="Subscribe"
+              type="button"
             >
               <ArrowRight size={14} />
             </button>
@@ -83,7 +104,8 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-line py-5 text-center text-[10px] text-muted">
-        © {new Date().getFullYear()} Creative Genius Trading. All Rights Reserved.
+        © {new Date().getFullYear()} Creative Genius Trading. All Rights
+        Reserved.
       </div>
     </footer>
   );
