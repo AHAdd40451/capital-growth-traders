@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Oswald, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const display = Oswald({
@@ -26,7 +27,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          src="https://moduleminds.ltd/api/widgets/embed.js"
+          data-widget-id="wgt_gchp5phjly"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }

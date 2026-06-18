@@ -16,7 +16,7 @@ export default function Framework() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-[1450px] overflow-visible border border-gold/25 md:grid-cols-3 lg:mt-14">
+        <div data-fw-grid className="mx-auto mt-12 grid max-w-[1450px] overflow-visible border border-gold/25 md:grid-cols-3 lg:mt-14">
           {STEPS.map((step, i) => (
             <article
               data-step-card

@@ -1,103 +1,65 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/data";
 
-export default function Testimonials() {
-  const trackRef = useRef<HTMLDivElement | null>(null);
+// Duplicate rows for seamless infinite marquee
+const ROW1 = [...TESTIMONIALS, ...TESTIMONIALS];
+const ROW2 = [...[...TESTIMONIALS].reverse(), ...[...TESTIMONIALS].reverse()];
 
-  const scroll = (dir: number) => {
-    if (!trackRef.current) return;
-
-    trackRef.current.scrollBy({
-      left: dir * 460,
-      behavior: "smooth",
-    });
-  };
-
+function Card({ t }: { t: (typeof TESTIMONIALS)[0] }) {
   return (
-    <section className="border-y border-line bg-[#080c0d]">
-      <div className="mx-auto max-w-[1600px] px-4 py-12 sm:px-6 lg:px-10">
+    <figure className="group flex min-w-[290px] select-none overflow-hidden border border-gold/20 bg-[#0d1214] transition-colors duration-300 hover:border-gold/50 sm:min-w-[360px]">
+      <div className="relative h-[158px] w-[130px] shrink-0 overflow-hidden sm:h-[178px] sm:w-[165px]">
+        <Image
+          src={t.img}
+          alt={t.name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="165px"
+        />
+        <div className="absolute inset-0 bg-black/15" />
+      </div>
+
+      <div className="flex flex-1 flex-col justify-center px-5 py-4">
+        <blockquote className="text-[13px] leading-relaxed text-cream/85 sm:text-[14px]">
+          &ldquo;{t.quote}&rdquo;
+        </blockquote>
+        <figcaption className="mt-4 text-[12px]">
+          <span className="block text-cream/60">{t.name}, {t.role}</span>
+          <span className="mt-1 block font-semibold text-gold">{t.range}</span>
+        </figcaption>
+      </div>
+    </figure>
+  );
+}
+
+export default function Testimonials() {
+  return (
+    <section className="overflow-hidden border-y border-line bg-[#080c0d] py-14">
+      {/* Header */}
+      <div className="mx-auto max-w-[1600px] px-4 pb-10 sm:px-6 lg:px-10">
         <h2 data-testi-title className="text-center font-display text-[26px] font-bold uppercase tracking-[0.08em] text-cream sm:text-[30px] md:text-[34px]">
           Real People. Real Results.
         </h2>
+        <div
+          data-heading-line
+          className="mx-auto mt-3 h-[1px] w-16 origin-left bg-gold"
+          style={{ transform: "scaleX(0)" }}
+        />
+      </div>
 
-        <div className="relative mt-10">
-          {/* Left Button */}
-          <button
-            type="button"
-            onClick={() => scroll(-1)}
-            aria-label="Previous testimonials"
-            className="absolute left-0 top-1/2 z-20 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold/35 bg-black/50 text-cream transition-all duration-300 hover:scale-110 hover:border-gold hover:text-gold lg:flex"
-          >
-            <ChevronLeft size={30} strokeWidth={2} />
-          </button>
-
-          {/* Cards */}
-          <div
-            ref={trackRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth px-1 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {TESTIMONIALS.map((t) => (
-              <figure
-                data-testi-card
-                key={t.name}
-                className="group flex min-w-[300px] overflow-hidden rounded-md border border-gold/25 bg-[#0b1112] shadow-[0_0_35px_rgba(0,0,0,0.35)] transition-transform duration-300 hover:scale-[1.02] sm:min-w-[360px] md:min-w-[420px]"
-              >
-                {/* Image */}
-                <div className="relative h-[165px] w-[145px] shrink-0 overflow-hidden sm:h-[185px] sm:w-[185px]">
-                  <Image
-                    src={t.img}
-                    alt={t.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
-                </div>
-
-                {/* Text */}
-                <div className="flex min-h-[165px] flex-1 flex-col justify-center px-5 py-4 transition-transform duration-300 group-hover:scale-[1.02] sm:min-h-[185px] sm:px-6">
-                  <blockquote className="text-[14px] leading-relaxed text-cream/90 sm:text-[15px]">
-                    &ldquo;{t.quote}&rdquo;
-                  </blockquote>
-
-                  <figcaption className="mt-5 text-[12px] leading-relaxed sm:text-[13px]">
-                    <span className="block text-cream/75">
-                      {t.name}, {t.role}
-                    </span>
-
-                    <span className="mt-2 block font-semibold text-gold">
-                      {t.range}
-                    </span>
-                  </figcaption>
-                </div>
-              </figure>
-            ))}
-          </div>
-
-          {/* Right Button */}
-          <button
-            type="button"
-            onClick={() => scroll(1)}
-            aria-label="Next testimonials"
-            className="absolute right-0 top-1/2 z-20 hidden h-14 w-14 translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold/35 bg-black/50 text-cream transition-all duration-300 hover:scale-110 hover:border-gold hover:text-gold lg:flex"
-          >
-            <ChevronRight size={30} strokeWidth={2} />
-          </button>
+      {/* Row 1 — scrolls left */}
+      <div data-marquee-row className="relative flex overflow-hidden">
+        <div className="animate-scroll-x flex gap-5 py-1">
+          {ROW1.map((t, i) => <Card key={i} t={t} />)}
         </div>
+      </div>
 
-        {/* Dots */}
-        <div className="mt-5 flex justify-center gap-4">
-          {[0, 1, 2, 3, 4].map((dot) => (
-            <span
-              key={dot}
-              className={`h-3 w-3 rounded-full transition-transform duration-300 hover:scale-125 ${
-                dot === 0 ? "bg-gold" : "bg-white/25"
-              }`}
-            />
-          ))}
+      {/* Row 2 — scrolls right */}
+      <div data-marquee-row className="relative mt-5 flex overflow-hidden">
+        <div className="animate-scroll-x-reverse flex gap-5 py-1">
+          {ROW2.map((t, i) => <Card key={i} t={t} />)}
         </div>
       </div>
     </section>

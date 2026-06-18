@@ -64,7 +64,12 @@ export default function CtaForm() {
         </div>
 
         {/* Lead form */}
-        <div data-cta-form className="space-y-4">
+        <div data-cta-form className="relative space-y-4 p-[1px]">
+          {/* Border draw */}
+          <span data-cta-border-top    className="pointer-events-none absolute left-0  top-0    z-20 h-[1px] w-full  bg-gold/60" style={{ transform: "scaleX(0)", transformOrigin: "left center" }} />
+          <span data-cta-border-right  className="pointer-events-none absolute right-0 top-0    z-20 h-full  w-[1px] bg-gold/60" style={{ transform: "scaleY(0)", transformOrigin: "center top" }} />
+          <span data-cta-border-bottom className="pointer-events-none absolute right-0 bottom-0 z-20 h-[1px] w-full  bg-gold/60" style={{ transform: "scaleX(0)", transformOrigin: "right center" }} />
+          <span data-cta-border-left   className="pointer-events-none absolute left-0  bottom-0 z-20 h-full  w-[1px] bg-gold/60" style={{ transform: "scaleY(0)", transformOrigin: "center bottom" }} />
           {sent ? (
             <p className="border border-gold bg-card/80 p-6 text-center text-sm text-gold transition-transform duration-300 hover:scale-[1.02]">
               You&apos;re in. Check your inbox for the free training.

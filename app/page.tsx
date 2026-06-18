@@ -9,11 +9,13 @@ import LatestBlogs from "@/components/LatestBlogs";
 import CtaForm from "@/components/CtaForm";
 import Footer from "@/components/Footer";
 import AnimationsInit from "@/components/AnimationsInit";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <main>
       <AnimationsInit />
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <IsThisYou />

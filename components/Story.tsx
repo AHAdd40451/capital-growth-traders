@@ -25,10 +25,17 @@ export default function Story() {
       </div>
 
       <div className="relative z-10 mx-auto grid max-w-[1450px] gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.5fr_1.2fr_0.7fr] lg:px-8">
-        {/* Video thumb */}
-        <div data-story-video className="group relative h-64 w-full overflow-hidden sm:h-80 lg:h-[320px]">
+
+        {/* Video thumb with 4-side border-draw */}
+        <div data-story-video className="group relative h-64 w-full sm:h-80 lg:h-[320px]">
+          {/* Border draw — 4 spans, initially collapsed */}
+          <span data-border-top    className="pointer-events-none absolute left-0  top-0     z-20 h-[1px] w-full  bg-gold" style={{ transform: "scaleX(0)", transformOrigin: "left center" }} />
+          <span data-border-right  className="pointer-events-none absolute right-0 top-0     z-20 h-full  w-[1px] bg-gold" style={{ transform: "scaleY(0)", transformOrigin: "center top" }} />
+          <span data-border-bottom className="pointer-events-none absolute right-0 bottom-0  z-20 h-[1px] w-full  bg-gold" style={{ transform: "scaleX(0)", transformOrigin: "right center" }} />
+          <span data-border-left   className="pointer-events-none absolute left-0  bottom-0  z-20 h-full  w-[1px] bg-gold" style={{ transform: "scaleY(0)", transformOrigin: "center bottom" }} />
+
           <button
-            className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-ink/60 text-gold transition-transform duration-300 hover:scale-110"
+            className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full border border-gold bg-ink/60 text-gold transition-all duration-300 hover:scale-110 hover:bg-gold hover:text-ink"
             aria-label="Play Shane's story"
           >
             <Play size={22} fill="currentColor" />
@@ -44,6 +51,7 @@ export default function Story() {
           <h2 className="mt-3 font-display text-3xl font-bold uppercase text-cream md:text-4xl">
             From FIFO to Freedom
           </h2>
+          <div data-heading-line className="mt-2 h-[1px] w-12 origin-left bg-gold" style={{ transform: "scaleX(0)" }} />
 
           <p className="mt-5 text-sm leading-relaxed text-cream/85">
             I came from housing commission, worked 100+ hour weeks FIFO, broke my back and
@@ -65,11 +73,7 @@ export default function Story() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-6 self-center sm:grid-cols-4 lg:grid-cols-1">
           {STATS.map((stat) => (
-            <div
-              data-stat-item
-              key={stat.label}
-              className="transition-transform duration-300 hover:scale-105"
-            >
+            <div data-stat-item key={stat.label} className="transition-transform duration-300 hover:scale-105">
               <p
                 className="font-display text-2xl font-bold text-gold"
                 {...(stat.countTarget
@@ -78,9 +82,7 @@ export default function Story() {
               >
                 {stat.value}
               </p>
-              <p className="text-xs uppercase tracking-wide text-cream/75">
-                {stat.label}
-              </p>
+              <p className="text-xs uppercase tracking-wide text-cream/75">{stat.label}</p>
             </div>
           ))}
         </div>

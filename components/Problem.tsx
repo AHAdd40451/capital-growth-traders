@@ -11,9 +11,8 @@ export default function Problem() {
           alt="Worker looking at an industrial skyline"
           fill
           priority
-          className="object-cover object-[68%_center] transition-transform duration-700 hover:scale-105 sm:object-[62%_center] lg:object-center"
+          className="object-cover object-[68%_center] sm:object-[62%_center] lg:object-center"
         />
-
         <div className="absolute inset-0 bg-black/15 sm:bg-black/25" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/55 to-transparent sm:from-ink sm:via-ink/60 sm:to-transparent" />
       </div>
@@ -29,29 +28,46 @@ export default function Problem() {
             <br />
             <span className="text-gold">but not freedom.</span>
           </h2>
+          <div data-heading-line className="mt-3 h-[1px] w-12 origin-left bg-gold" style={{ transform: "scaleX(0)" }} />
 
-          <ul className="mt-6 max-w-md space-y-3 sm:mt-8 sm:space-y-4">
-            {PAIN_POINTS.map((point) => (
-              <li
-                data-prob-point
-                key={point}
-                className="flex items-center gap-3 text-xs text-cream/90 sm:text-sm"
-              >
-                <CheckCircle2
-                  size={18}
-                  className="shrink-0 text-gold transition-transform duration-300 hover:scale-110"
-                />
-                {point}
-              </li>
-            ))}
-          </ul>
+          {/* Pain points with left accent line */}
+          <div className="relative mt-6 sm:mt-8">
+            {/* Gold vertical line that grows downward */}
+            <span
+              data-prob-line
+              className="pointer-events-none absolute -left-4 top-0 h-full w-[2px] bg-gradient-to-b from-gold via-gold/40 to-transparent origin-top"
+              style={{ transform: "scaleY(0)" }}
+            />
+
+            <ul className="max-w-md space-y-3 sm:space-y-4">
+              {PAIN_POINTS.map((point) => (
+                <li
+                  data-prob-point
+                  key={point}
+                  className="flex items-center gap-3 text-xs text-cream/90 sm:text-sm"
+                >
+                  <CheckCircle2 size={18} className="shrink-0 text-gold" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="pointer-events-none absolute right-[28%] top-[38%] hidden border border-line bg-ink/80 px-3 py-1.5 text-[10px] uppercase tracking-wideish text-cream lg:block">
+        {/* Floating tags */}
+        <div
+          data-float-tag
+          className="pointer-events-none absolute right-[28%] top-[38%] hidden border border-line bg-ink/80 px-3 py-1.5 text-[10px] uppercase tracking-wideish text-cream lg:block"
+          style={{ opacity: 0 }}
+        >
           High Income
         </div>
 
-        <div className="pointer-events-none absolute bottom-[26%] right-[8%] hidden border border-gold bg-ink/80 px-3 py-1.5 text-[10px] uppercase tracking-wideish text-gold lg:block">
+        <div
+          data-float-tag
+          className="pointer-events-none absolute bottom-[26%] right-[8%] hidden border border-gold bg-ink/80 px-3 py-1.5 text-[10px] uppercase tracking-wideish text-gold lg:block"
+          style={{ opacity: 0 }}
+        >
           Freedom
         </div>
       </div>
