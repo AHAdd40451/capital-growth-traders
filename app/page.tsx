@@ -23,8 +23,8 @@ export default function Home() {
       <Framework />
       <Story />
       <Testimonials />
-      <LatestBlogs />
       <CtaForm />
+      <LatestBlogs />
       <Footer />
     </main>
   );
