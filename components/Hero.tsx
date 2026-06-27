@@ -50,7 +50,7 @@ export default function Hero() {
               href="#cta"
               className="inline-flex items-center gap-2 bg-gold px-6 py-3 text-[11px] font-semibold uppercase tracking-wideish text-ink transition-all duration-300 hover:scale-105 hover:bg-goldDim"
             >
-              Start Free Training <ArrowRight size={14} />
+              SIGNUP TO JOIN FREE COMMUNITY <ArrowRight size={14} />
             </a>
           </div>
         </div>
