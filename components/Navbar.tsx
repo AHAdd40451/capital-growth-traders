@@ -5,10 +5,11 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/data";
 
+const hiddenLinks = ["Free Training", "Programs"];
+
 const getNavHref = (link: string) => {
   if (link === "Home") return "/";
   if (link === "Blog") return "/blog";
-  if (link === "Free Training") return "/#cta";
 
   return `/#${link.toLowerCase().replaceAll(" ", "-")}`;
 };
@@ -18,6 +19,10 @@ export default function Navbar() {
 
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const filteredNavLinks = NAV_LINKS.filter(
+    (link) => !hiddenLinks.includes(link)
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -43,7 +48,6 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between gap-8 px-4 lg:px-8">
-        {/* Logo */}
         <a
           href="/"
           className="flex shrink-0 items-center gap-3 transition-transform duration-300 hover:scale-105"
@@ -61,9 +65,8 @@ export default function Navbar() {
           </span>
         </a>
 
-        {/* Desktop nav */}
         <nav className="hidden items-center gap-9 xl:flex">
-          {NAV_LINKS.map((link) => {
+          {filteredNavLinks.map((link) => {
             const active = isActiveLink(link);
 
             return (
@@ -87,7 +90,7 @@ export default function Navbar() {
             href="/#cta"
             className="hidden items-center gap-2 border border-gold px-4 py-2 text-[11px] uppercase tracking-wideish text-gold transition-all duration-300 hover:scale-105 hover:bg-gold hover:text-ink md:flex"
           >
-            Start Free Training <ArrowRight size={14} />
+            SIGNUP TO JOIN FREE COMMUNITY <ArrowRight size={14} />
           </a>
 
           <button
@@ -101,10 +104,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Dropdown menu */}
       {open && (
         <nav className="bg-ink/95 px-4 py-4 backdrop-blur-md">
-          {NAV_LINKS.map((link) => (
+          {filteredNavLinks.map((link) => (
             <a
               key={link}
               href={getNavHref(link)}

@@ -1,9 +1,7 @@
 export const NAV_LINKS = [
   "Home",
-  "Free Training",
   "Community",
   "Success Stories",
-  "Programs",
   "The Project",
   "Events",
   "Blog",
@@ -69,11 +67,11 @@ export const STEPS = [
 
 export const STATS = [
   {
-    value: "10,000+",
+    value: "5,000+",
     label: "Community Members",
   },
   {
-    value: "5+",
+    value: "10+",
     label: "Years Trading",
   },
   {

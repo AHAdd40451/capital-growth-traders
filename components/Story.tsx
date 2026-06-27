@@ -4,15 +4,15 @@ import { IMAGES } from "@/lib/data";
 
 const STATS = [
   {
-    value: "10,000+",
+    value: "5,000+",
     label: "Community Members",
-    countTarget: "10000",
+    countTarget: "5000",
     countSuffix: "+",
   },
   {
-    value: "5+",
+    value: "10+",
     label: "Years Trading",
-    countTarget: "5",
+    countTarget: "10",
     countSuffix: "+",
   },
   {
